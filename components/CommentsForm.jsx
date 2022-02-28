@@ -5,7 +5,7 @@ const CommentsForm = ({ slug }) => {
   const [error, setError] = useState(false);
   const [localStorage, setLocalStorage] = useState(null);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [formData, setFormData] = useState({ name: null, email: null, comment: null, storeData: false });
+  const [formData, setFormData] = useState({ name: '', email: '', comment: '', storeData: '' });
 
   useEffect(() => {
     setLocalStorage(window.localStorage);
@@ -53,7 +53,7 @@ const CommentsForm = ({ slug }) => {
       localStorage.removeItem('name');
       localStorage.removeItem('email');
     }
-
+  
     submitComment(commentObj)
       .then((res) => {
         if (res.createComment) {
@@ -71,6 +71,8 @@ const CommentsForm = ({ slug }) => {
             setShowSuccessMessage(false);
           }, 3000);
         }
+      }).catch((err)=> {
+          console.log(err)
       });
   };
 
