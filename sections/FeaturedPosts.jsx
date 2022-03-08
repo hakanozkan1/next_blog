@@ -8,15 +8,15 @@ import { getFeaturedPosts } from '../services';
 const responsive = {
   superLargeDesktop: {
     breakpoint: { max: 4000, min: 1024 },
-    items: 5,
+    items: 1,
   },
   desktop: {
     breakpoint: { max: 1024, min: 768 },
-    items: 3,
+    items: 1,
   },
   tablet: {
     breakpoint: { max: 768, min: 640 },
-    items: 2,
+    items: 1,
   },
   mobile: {
     breakpoint: { max: 640, min: 0 },
@@ -32,11 +32,11 @@ const FeaturedPosts = () => {
     getFeaturedPosts().then((result) => {
       setFeaturedPosts(result);
       setDataLoaded(true);
-    });
+    }); 
   }, []);
 
   const customLeftArrow = (
-    <div className="absolute arrow-btn left-0 text-center py-3 cursor-pointer bg-pink-600 rounded-full">
+    <div className="absolute arrow-btn left-0 text-center py-3 cursor-pointer bg-customColor opacity-50 rounded-full">
       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white " fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
       </svg>
@@ -44,7 +44,7 @@ const FeaturedPosts = () => {
   );
 
   const customRightArrow = (
-    <div className="absolute arrow-btn right-0 text-center py-3 cursor-pointer bg-pink-600 rounded-full">
+    <div className="absolute arrow-btn right-0 text-center py-3 cursor-pointer bg-customColor rounded-full">
       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white " fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
       </svg>
